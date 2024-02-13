@@ -1,6 +1,5 @@
 # Simple Python Requests Sender.
 ## Requirements:
-requests
-time
+requests & time
 # Free to use
 
