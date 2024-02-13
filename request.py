@@ -15,6 +15,7 @@ def send_request(url, headers, counter):
         print(Fore.LIGHTRED_EX + f"[-]{Style.RESET_ALL} Error sending request {counter}: {e}")
 
 def main():
+    ctypes.windll.kernel32.SetConsoleTitleW("Python Requests by Kropa")
     target_url = input(Fore.LIGHTYELLOW_EX + f"[?]{Style.RESET_ALL} Enter the target URL: ")
     num_requests = int(input(Fore.LIGHTYELLOW_EX + f"[?]{Style.RESET_ALL} Enter the number of requests to send: "))
     delay_seconds = float(input(Fore.LIGHTYELLOW_EX + f"[?]{Style.RESET_ALL} Enter the delay between requests (in seconds): "))
