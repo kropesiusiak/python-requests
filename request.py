@@ -2,20 +2,22 @@
 
 import requests
 import time
+from colorama import Fore, Style, init
+init()
 
 def send_request(url, headers, counter):
     try:
         response = requests.get(url, headers=headers)
         response.raise_for_status()
-        print(f"Request {counter} successful! Status Code: {response.status_code}")
-        print(f"Response: {response.text}")
+        print(Fore.LIGHTGREEN_EX + f"[+]{Style.RESET_ALL} Request {counter} successful! Status Code: {response.status_code}")
+        print(Fore.LIGHTBLUE_EX + f"[!]{Style.RESET_ALL} Response: {response.text}")
     except requests.exceptions.RequestException as e:
-        print(f"Error sending request {counter}: {e}")
+        print(Fore.LIGHTRED_EX + f"[-]{Style.RESET_ALL} Error sending request {counter}: {e}")
 
 def main():
-    target_url = input("Enter the target URL: ")
-    num_requests = int(input("Enter the number of requests to send: "))
-    delay_seconds = float(input("Enter the delay between requests (in seconds): "))
+    target_url = input(Fore.LIGHTYELLOW_EX + f"[?]{Style.RESET_ALL} Enter the target URL: ")
+    num_requests = int(input(Fore.LIGHTYELLOW_EX + f"[?]{Style.RESET_ALL} Enter the number of requests to send: "))
+    delay_seconds = float(input(Fore.LIGHTYELLOW_EX + f"[?]{Style.RESET_ALL} Enter the delay between requests (in seconds): "))
     
     # You can customize headers based on your needs
     headers = {
